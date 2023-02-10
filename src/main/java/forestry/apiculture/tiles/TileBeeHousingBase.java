@@ -12,6 +12,8 @@ package forestry.apiculture.tiles;
 
 import java.io.IOException;
 
+import com.bioxx.tfc.Core.TFC_Climate;
+import cpw.mods.fml.common.FMLLog;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.util.Vec3;
@@ -32,6 +34,7 @@ import forestry.core.network.IStreamableGui;
 import forestry.core.proxy.Proxies;
 import forestry.core.tiles.IClimatised;
 import forestry.core.tiles.TileBase;
+import org.apache.logging.log4j.Level;
 
 public abstract class TileBeeHousingBase extends TileBase implements IBeeHousing, IClimatised, IGuiBeeHousingInventory, IStreamableGui {
 	private final IBeekeepingLogic beeLogic;
@@ -71,18 +74,20 @@ public abstract class TileBeeHousingBase extends TileBase implements IBeeHousing
 	/* ICLIMATISED */
 	@Override
 	public EnumTemperature getTemperature() {
-		return EnumTemperature.getFromBiome(getBiome(), xCoord, yCoord, zCoord);
+		return EnumTemperature.getFromValue((TFC_Climate.getHeightAdjustedTemp(worldObj, xCoord, yCoord, zCoord)
+				-17) / 8);
 	}
-
+	@Override
+	public float getExactTemperature() {
+		return (TFC_Climate.getHeightAdjustedTemp(worldObj, xCoord, yCoord, zCoord)
+				-17) / 8;
+	}
 	@Override
 	public EnumHumidity getHumidity() {
 		return EnumHumidity.getFromValue(getExactHumidity());
 	}
 
-	@Override
-	public float getExactTemperature() {
-		return getBiome().getFloatTemperature(xCoord, yCoord, zCoord);
-	}
+
 
 	@Override
 	public float getExactHumidity() {

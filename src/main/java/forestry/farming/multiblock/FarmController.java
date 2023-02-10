@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
+import com.bioxx.tfc.Core.TFC_Climate;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -388,9 +389,9 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 	@Override
 	public EnumTemperature getTemperature() {
 		ChunkCoordinates coords = getReferenceCoord();
-		return EnumTemperature.getFromBiome(getBiome(), coords.posX, coords.posY, coords.posZ);
+		return EnumTemperature.getFromValue((TFC_Climate.getHeightAdjustedTemp(worldObj, coords.posX, coords.posY, coords.posZ)
+				-17) / 10);
 	}
-
 	@Override
 	public EnumHumidity getHumidity() {
 		return EnumHumidity.getFromValue(getExactHumidity());
@@ -399,7 +400,8 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 	@Override
 	public float getExactTemperature() {
 		ChunkCoordinates coords = getReferenceCoord();
-		return getBiome().getFloatTemperature(coords.posX, coords.posY, coords.posZ);
+		return (TFC_Climate.getHeightAdjustedTemp(worldObj, coords.posX, coords.posY, coords.posZ)
+				-17) / 10;
 	}
 
 	@Override

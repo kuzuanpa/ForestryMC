@@ -13,6 +13,8 @@ package forestry.apiculture.entities;
 import java.io.IOException;
 import java.util.Random;
 
+import com.bioxx.tfc.Core.TFC_Climate;
+import cpw.mods.fml.common.FMLLog;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Vec3;
@@ -38,6 +40,7 @@ import forestry.core.network.IForestryPacketServer;
 import forestry.core.network.IStreamableGui;
 import forestry.core.proxy.Proxies;
 import forestry.core.tiles.IClimatised;
+import org.apache.logging.log4j.Level;
 
 public abstract class EntityMinecartBeeHousingBase extends EntityMinecartContainerForestry implements IBeeHousing, IGuiBeeHousingInventory, IClimatised, IStreamableGui {
 	private static final Random random = new Random();
@@ -69,20 +72,23 @@ public abstract class EntityMinecartBeeHousingBase extends EntityMinecartContain
 		return beeLogic;
 	}
 
-	@Override
-	public EnumTemperature getTemperature() {
-		return EnumTemperature.getFromBiome(getBiome(), (int) posX, (int) posY, (int) posZ);
-	}
 
 	@Override
 	public EnumHumidity getHumidity() {
 		return EnumHumidity.getFromValue(getBiome().rainfall);
 	}
+	@Override
+	public EnumTemperature getTemperature() {
+		return EnumTemperature.getFromValue((TFC_Climate.getHeightAdjustedTemp(worldObj,(int) posX,(int) posY, (int) posZ)
+				-17) / 12);}
 
 	@Override
 	public float getExactTemperature() {
-		return getBiome().temperature;
+		return (TFC_Climate.getHeightAdjustedTemp(worldObj, (int) posX,(int) posY, (int) posZ)
+				-17) / 12;
 	}
+
+
 
 	@Override
 	public float getExactHumidity() {

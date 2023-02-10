@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.bioxx.tfc.Core.TFC_Climate;
 import forestry.api.core.BiomeHelper;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
@@ -348,7 +349,8 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 	@Override
 	public float getExactTemperature() {
 		ChunkCoordinates coords = getReferenceCoord();
-		return getBiome().getFloatTemperature(coords.posX, coords.posY, coords.posZ) + tempChange;
+		return (TFC_Climate.getHeightAdjustedTemp(worldObj, coords.posX, coords.posY, coords.posZ)
+				-17) / 10;
 	}
 
 	@Override
