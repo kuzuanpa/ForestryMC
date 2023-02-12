@@ -75,12 +75,12 @@ public abstract class TileBeeHousingBase extends TileBase implements IBeeHousing
 	@Override
 	public EnumTemperature getTemperature() {
 		return EnumTemperature.getFromValue((TFC_Climate.getHeightAdjustedTemp(worldObj, xCoord, yCoord, zCoord)
-				-17) / 8);
+				-14) / 14);
 	}
 	@Override
 	public float getExactTemperature() {
 		return (TFC_Climate.getHeightAdjustedTemp(worldObj, xCoord, yCoord, zCoord)
-				-17) / 8;
+				-14) / 14;
 	}
 	@Override
 	public EnumHumidity getHumidity() {

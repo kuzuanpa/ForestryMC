@@ -390,7 +390,7 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 	public EnumTemperature getTemperature() {
 		ChunkCoordinates coords = getReferenceCoord();
 		return EnumTemperature.getFromValue((TFC_Climate.getHeightAdjustedTemp(worldObj, coords.posX, coords.posY, coords.posZ)
-				-17) / 10);
+				-14) / 18);
 	}
 	@Override
 	public EnumHumidity getHumidity() {
@@ -401,7 +401,7 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 	public float getExactTemperature() {
 		ChunkCoordinates coords = getReferenceCoord();
 		return (TFC_Climate.getHeightAdjustedTemp(worldObj, coords.posX, coords.posY, coords.posZ)
-				-17) / 10;
+				-14) / 18;
 	}
 
 	@Override

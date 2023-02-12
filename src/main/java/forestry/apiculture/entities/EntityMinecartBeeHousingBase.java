@@ -77,15 +77,15 @@ public abstract class EntityMinecartBeeHousingBase extends EntityMinecartContain
 	public EnumHumidity getHumidity() {
 		return EnumHumidity.getFromValue(getBiome().rainfall);
 	}
+	//make temp almost same as BeeHouse in same location
 	@Override
 	public EnumTemperature getTemperature() {
 		return EnumTemperature.getFromValue((TFC_Climate.getHeightAdjustedTemp(worldObj,(int) posX,(int) posY, (int) posZ)
-				-17) / 12);}
-
+				-19) / 18);}
 	@Override
 	public float getExactTemperature() {
 		return (TFC_Climate.getHeightAdjustedTemp(worldObj, (int) posX,(int) posY, (int) posZ)
-				-17) / 12;
+				-19) / 18;
 	}
 
 
