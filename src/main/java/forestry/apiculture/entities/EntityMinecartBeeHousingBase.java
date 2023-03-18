@@ -81,11 +81,11 @@ public abstract class EntityMinecartBeeHousingBase extends EntityMinecartContain
 	@Override
 	public EnumTemperature getTemperature() {
 		return EnumTemperature.getFromValue((TFC_Climate.getHeightAdjustedTemp(worldObj,(int) posX,(int) posY, (int) posZ)
-				-19) / 18);}
+				-4) / 28);}
 	@Override
 	public float getExactTemperature() {
 		return (TFC_Climate.getHeightAdjustedTemp(worldObj, (int) posX,(int) posY, (int) posZ)
-				-19) / 18;
+				-4) / 28;
 	}
 
 

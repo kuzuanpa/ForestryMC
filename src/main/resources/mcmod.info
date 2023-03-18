@@ -1,12 +1,12 @@
 [
 {
   "modid": "Forestry",
-  "name": "Forestry for Minecraft",
+  "name": "ForestryMC for TerraFirmaCraft",
   "description": "Trees, bees and more.",
   "credits": "mistaqur, Binnie",
   "logoFile": "/assets/forestry/logo.png",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "version": "TFRU-4.2.0",
+  "mcversion": "1.7.10",
   "url": "http://forestry.sengir.net/",
   "updateUrl": "http://forestry.sengir.net/wiki/index.php?n=Main.Downloads",
   "authorList": [ "SirSengir" ],

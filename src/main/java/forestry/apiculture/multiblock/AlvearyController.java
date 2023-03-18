@@ -350,7 +350,7 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 	public float getExactTemperature() {
 		ChunkCoordinates coords = getReferenceCoord();
 		return (TFC_Climate.getHeightAdjustedTemp(worldObj, coords.posX, coords.posY, coords.posZ)
-				-(float)4.8) / 32;
+				+ 2) / 32;
 	}
 
 	@Override
