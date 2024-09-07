@@ -91,7 +91,7 @@ public abstract class TileBeeHousingBase extends TileBase implements IBeeHousing
 
 	@Override
 	public float getExactHumidity() {
-		return getBiome().rainfall;
+		return TFC_Climate.getRainfall(worldObj, xCoord, yCoord, zCoord)/2000F;
 	}
 
 	/* UPDATING */

@@ -406,7 +406,8 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 
 	@Override
 	public float getExactHumidity() {
-		return getBiome().rainfall;
+		ChunkCoordinates coords = getReferenceCoord();
+		return TFC_Climate.getRainfall(worldObj, coords.posX, coords.posY, coords.posZ)/2000F;
 	}
 
 	private int[] coords;

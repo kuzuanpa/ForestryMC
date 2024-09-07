@@ -5,14 +5,15 @@
   "description": "Trees, bees and more.",
   "credits": "mistaqur, Binnie",
   "logoFile": "/assets/forestry/logo.png",
-  "version": "TFRU-4.2.0",
+  "version": "TFRU-4.2.1",
   "mcversion": "1.7.10",
   "url": "http://forestry.sengir.net/",
   "updateUrl": "http://forestry.sengir.net/wiki/index.php?n=Main.Downloads",
   "authorList": [ "SirSengir" ],
   "screenshots": [ "/gfx/forestry/screenshots/screen1.jpg", "/gfx/forestry/screenshots/screen2.jpg" ],
   "dependencies": [
-     "mod_MinecraftForge"
+     "mod_MinecraftForge",
+     "required_after:TerraFirmaCraft"
   ]
 }
 ]

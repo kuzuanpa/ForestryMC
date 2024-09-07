@@ -355,7 +355,9 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 
 	@Override
 	public float getExactHumidity() {
-		return getBiome().rainfall + humidChange;
+		ChunkCoordinates coords = getReferenceCoord();
+
+		return TFC_Climate.getRainfall(worldObj, coords.posX, coords.posY, coords.posZ)/2000F + humidChange;
 	}
 
 	@Override
