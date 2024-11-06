@@ -62,8 +62,17 @@ sourceSets {
 
 repositories {
 	maven {
-		name = "ic2"
-		url = "https://maven.ic2.player.to/"
+		name = "gt"
+		url = "https://gregtech.mechaenetia.com/"
+	}
+	maven {
+		name = "sonatype"
+		url = "https://oss.sonatype.org/content/repositories/snapshots/"
+	}
+	maven {
+		name = "gtnh"
+		url = "http://jenkins.usrv.eu:8081/nexus/content/groups/public/"
+		allowInsecureProtocol = true
 	}
 	ivy {
 		name "BuildCraft"
